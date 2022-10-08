@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ColegioApp.Models.ESTUDIANTE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CURSO.NombreCurso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CURSO.NombreCurso)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Dni }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Dni }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Dni })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Ir al formulario curso", "Index", "CURSO")
+</div>
